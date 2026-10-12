@@ -1,16 +1,13 @@
 public class SmartHomeClient {
-    public static void main(String[] args) {
+    private SmartHomeFacade facade;
 
-        DoorLockManager doors = new DoorLockManager();
-        SecuritySystem security = new SecuritySystem();
-        ClimateControl climate = new ClimateControl();
-        LightingSystem lights = new LightingSystem();
+    public SmartHomeClient(SmartHomeFacade facade) {
+        this.facade = facade;
+    }
 
-        SmartHomeFacade facade = new SmartHomeFacade(doors, security, climate, lights);
+    public void run() {
         facade.enterHome();
-
         facade.leaveHome();
-
         facade.nightMode();
     }
 }

@@ -1,5 +1,5 @@
 public class ClimateControl {
-    public void setTemperature(int degrees) {
+    public void setTemperature(float degrees) {
         System.out.println("Climate: Temperature set to " + degrees + " degrees.");
     }
 
