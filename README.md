@@ -17,7 +17,7 @@ The project consists of three main parts:
     * `SmartHomeClient.java` - The entry point that uses the Facade to control the house without directly interacting with the subsystem classes.
 
 ## Clean Code Principles Applied
-1. **Meaningful Names:** Methods like `leaveHome()` and `arriveHome()` make the Facade's API self-explanatory.
+1. **Meaningful Names:** Methods like `leaveHome()` and `arriveHome()` make the Facade's API self-explanatory..
 2. **Single Responsibility Principle (SRP):** The Facade strictly coordinates the execution order; it does not implement the actual logic of turning on lights or locking doors.
 3. **Encapsulation (No Leaking Details):** The Client is completely unaware of the complex subsystem interactions.
 4. **Small, Focused Classes:** Each subsystem class manages only one specific aspect of the house (e.g., `ClimateControl` only handles temperature).
