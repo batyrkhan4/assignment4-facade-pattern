@@ -12,7 +12,7 @@ The project consists of three main parts:
     * `ClimateControl.java` - Adjusts temperature and heating/cooling modes.
     * `LightingSystem.java` - Controls the lights in different rooms.
 2. **Facade:**
-    * `SmartHomeFacade.java` - Provides a simple API (`leaveHome()`, `arriveHome()`, `nightMode()`) that coordinates the subsystem classes in the correct order.
+    * `SmartHomeFacade.java` - Provides a simple API (`leaveHome()`, `enterHome()`, `nightMode()`) that coordinates the subsystem classes in the correct order.
 3. **Client:**
     * `SmartHomeClient.java` - The entry point that uses the Facade to control the house without directly interacting with the subsystem classes.
 
