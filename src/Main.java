@@ -4,8 +4,8 @@ public class Main {
         SecuritySystem security = new SecuritySystem();
         ClimateControl climate = new ClimateControl();
         LightingSystem lights = new LightingSystem();
-
-        SmartHomeFacade facade = new SmartHomeFacade(doors, security, climate, lights);
+        ConsoleNotificationService notifications = new ConsoleNotificationService();
+        SmartHomeFacade facade = new SmartHomeFacade(doors, security, climate, lights,notifications);
 
         SmartHomeClient client = new SmartHomeClient(facade);
         client.run();

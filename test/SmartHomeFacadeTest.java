@@ -8,6 +8,7 @@ public class SmartHomeFacadeTest {
     private ClimateControl climate;
     private SecuritySystem security;
     private DoorLockManager doors;
+    private HomeNotificationService notifications;
 
 
     @BeforeEach
@@ -17,8 +18,8 @@ public class SmartHomeFacadeTest {
         climate = new ClimateControl();
         security = new SecuritySystem();
         doors = new DoorLockManager();
-
-        facade = new SmartHomeFacade(doors, security, climate, lights);
+        notifications = new ConsoleNotificationService();
+        facade = new SmartHomeFacade(doors, security, climate, lights, notifications);
     }
 
     @Test
@@ -58,7 +59,7 @@ public class SmartHomeFacadeTest {
     @Test
     public void testConstructorRejectsNullDoors() {
         assertThrows(NullPointerException.class, () -> new SmartHomeFacade(
-                null, new SecuritySystem(), new ClimateControl(), new LightingSystem()),
+                null, new SecuritySystem(), new ClimateControl(), new LightingSystem(), new ConsoleNotificationService()),
                 "DoorLockManager cannot be null"
         );
     }
