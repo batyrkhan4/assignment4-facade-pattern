@@ -22,7 +22,7 @@ public class SmartHomeFacadeTest {
     }
 
     @Test
-    public void testArriveHome() {
+    public void testEnterHome() {
         // Operate
         facade.enterHome();
 
