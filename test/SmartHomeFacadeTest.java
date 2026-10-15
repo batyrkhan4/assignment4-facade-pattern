@@ -59,8 +59,17 @@ public class SmartHomeFacadeTest {
     @Test
     public void testConstructorRejectsNullDoors() {
         assertThrows(NullPointerException.class, () -> new SmartHomeFacade(
-                null, new SecuritySystem(), new ClimateControl(), new LightingSystem(), new ConsoleNotificationService()),
+                        null, new SecuritySystem(), new ClimateControl(), new LightingSystem(), new ConsoleNotificationService()),
                 "DoorLockManager cannot be null"
         );
+    }
+
+    @Test
+    public void testLeaveHomeSendsNotification() {
+        FakeHomeNotificationService fakeNotifications = new FakeHomeNotificationService();
+        facade = new SmartHomeFacade(doors, security, climate, lights, fakeNotifications);
+
+        facade.leaveHome();
+        assertTrue(fakeNotifications.getMessages().contains("--- Home is secured ---\n"), "Facade should send a home secured notification");
     }
 }
