@@ -1,3 +1,4 @@
+import java.util.Objects;
 public class SmartHomeFacade {
     private DoorLockManager doors;
     private SecuritySystem security;
@@ -5,10 +6,10 @@ public class SmartHomeFacade {
     private LightingSystem lights;
 
     public SmartHomeFacade(DoorLockManager doors, SecuritySystem security, ClimateControl climate, LightingSystem lights) {
-        this.doors = doors;
-        this.security = security;
-        this.climate = climate;
-        this.lights = lights;
+        this.doors = Objects.requireNonNull(doors, "DoorLockManager cannot be null");
+        this.security = Objects.requireNonNull(security, "SecuritySystem cannot be null");
+        this.climate = Objects.requireNonNull(climate, "ClimateControl cannot be null");
+        this.lights = Objects.requireNonNull(lights, "LightingSystem cannot be null");
     }
 
     public void leaveHome() {

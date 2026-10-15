@@ -54,4 +54,12 @@ public class SmartHomeFacadeTest {
         assertTrue(doors.isLocked(), "Doors should be locked");
         assertEquals(19.0, climate.getTemperature(), "Temperature should be lowered for the night");
     }
+
+    @Test
+    public void testConstructorRejectsNullDoors() {
+        assertThrows(NullPointerException.class, () -> new SmartHomeFacade(
+                null, new SecuritySystem(), new ClimateControl(), new LightingSystem()),
+                "DoorLockManager cannot be null"
+        );
+    }
 }
